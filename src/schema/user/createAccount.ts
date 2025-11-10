@@ -1,0 +1,36 @@
+import { InferInput, object, optional, string } from "valibot";
+
+const accountSchema = object({
+    "email": string(),
+    "username": string(),
+    "password": string(),
+    "role": string()
+});
+
+const adminSchema = object({
+    ...accountSchema.entries,
+    "publicName": string()
+});
+
+const businessSchema = object({
+    ...accountSchema.entries,
+    "title": string(),
+    "bio": optional(string()),
+    "phone": string(),
+    "contactEmail": optional(string())
+});
+
+const userSchema = object({
+    "firstname": string(),
+    "lastname": string(),
+    "birth": optional(string()),
+    "phone": optional(string())
+});
+
+export type CreateUser = InferInput<typeof userSchema>;
+export type UpdateUser = Partial<CreateUser>;
+
+export type CreateBusiness = InferInput<typeof businessSchema>;
+export type UpdateBusiness = Partial<CreateBusiness>;
+
+export type CreateAdmin = InferInput<typeof adminSchema>;
