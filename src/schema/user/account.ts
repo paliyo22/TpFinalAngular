@@ -55,3 +55,4 @@ export type AccountSchema = InferInput<typeof accountSchema>;
 export const validateAccount = (imput: unknown) => {
     return safeParse(accountSchema, imput)
 };
+

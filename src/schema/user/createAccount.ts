@@ -1,9 +1,10 @@
-import { InferInput, object, optional, string } from "valibot";
+import { InferInput, object, optional, string, pipe, email, minLength, date } from "valibot";
+
 
 const accountSchema = object({
-    "email": string(),
-    "username": string(),
-    "password": string(),
+    "email": pipe(string(), email()),
+    "username": pipe(string(), minLength(4)),
+    "password": pipe(string(), minLength(6)),
     "role": string()
 });
 
@@ -17,13 +18,13 @@ const businessSchema = object({
     "title": string(),
     "bio": optional(string()),
     "phone": string(),
-    "contactEmail": optional(string())
+    "contactEmail": optional(pipe(string(), email()))
 });
 
 const userSchema = object({
     "firstname": string(),
     "lastname": string(),
-    "birth": optional(string()),
+    "birth": optional(date()),
     "phone": optional(string())
 });
 

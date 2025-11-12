@@ -6,7 +6,7 @@ import { AccountSchema } from '../../schema/user/account';
 @Injectable({
   providedIn: 'root',
 })
-export class Account {
+export class AccountService {
   private apiUrl = 'Averiguar el .env';
   private http = inject(HttpClient);
 
