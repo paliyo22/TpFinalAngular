@@ -1,11 +1,12 @@
-import { InferInput, object, optional, string, pipe, email, minLength, date } from "valibot";
+import { InferInput, object, optional, string, pipe, email, minLength, date, enum_ } from "valibot";
+import { Role } from "../../enum/role";
 
 
 const accountSchema = object({
     "email": pipe(string(), email()),
     "username": pipe(string(), minLength(4)),
     "password": pipe(string(), minLength(6)),
-    "role": string()
+    "role": enum_(Role)
 });
 
 const adminSchema = object({

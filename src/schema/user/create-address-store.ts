@@ -10,7 +10,7 @@ const addressSchema = object({
 
 const storeSchema = object({
     ...addressSchema.entries,
-    "phone": string()
+    "phone": optional(string())
 });
 
 export type CreateAddress = InferInput<typeof addressSchema>;

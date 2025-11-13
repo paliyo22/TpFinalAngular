@@ -63,7 +63,7 @@ export class ProductService {
     .pipe(
       tap({
         next: (response) => {
-          this.productState.update((status) => ({
+          this.productState.update(() => ({
             data: response.data,
             loading: false,
             error: null

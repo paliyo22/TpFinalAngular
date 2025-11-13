@@ -1,1 +1,11 @@
-<p>category works!</p>
+@let category = categoySignal.categoryState();
+
+@if(!category.error){
+    @if(category.loading){
+        mensaje de cargando
+    }@else{
+        muestra la lista de productos de la categoria 
+    }
+}@else{
+    html que muestra mensaje de error
+}

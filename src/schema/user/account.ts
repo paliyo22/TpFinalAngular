@@ -26,6 +26,7 @@ const adminSchema = object({
 });
 
 const addressSchema = object({
+    "id": string(),
     "address": string(),
     "apartment": string(),
     "city": string(),
@@ -34,12 +35,12 @@ const addressSchema = object({
 });
 
 const storeSchema = object({
+    "id": string(),
     "address": addressSchema,
     "phone": string()
 });
 
 const accountSchema = object({
-    "role": string(),
     "email": string(),
     "username": string(),
     "meta": metaSchema,

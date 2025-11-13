@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sign-in',
+  selector: 'app-sign-up',
   imports: [],
-  templateUrl: './sign-in.html',
-  styleUrl: './sign-in.css',
+  templateUrl: './sign-up.html',
+  styleUrl: './sign-up.css',
 })
 export class SignIn {
 

@@ -3,6 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { Url } from '../../common/const';
 import { AuthSchema } from '../../schema/user/auth';
 import { catchError, Observable, of, switchMap, tap } from 'rxjs';
+import { Role } from '../../enum/role';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class AuthService {
   authState = signal({
     logged: false,
     username: null as string | null,
-    role: null as string | null,
+    role: null as Role | null,
     loading: false,
     error: null as string | null
   });
@@ -38,7 +39,7 @@ export class AuthService {
       error: null
     }));
 
-    this.http.post<{username: string, role: string}>(`${this.apiUrl}/login`, auth, {withCredentials: true})
+    this.http.post<{username: string, role: Role}>(`${this.apiUrl}/login`, auth, {withCredentials: true})
     .pipe(
       tap({
         next: (response) => {
@@ -96,7 +97,7 @@ export class AuthService {
       error: null
     }));
 
-    return this.http.post<{username: string, role: string}>(`${this.apiUrl}/refresh`, {}, { withCredentials: true })
+    return this.http.post<{username: string, role: Role}>(`${this.apiUrl}/refresh`, {}, { withCredentials: true })
     .pipe(
       tap((response) => {
         this.authState.update(() => ({

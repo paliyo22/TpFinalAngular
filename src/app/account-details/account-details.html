@@ -1,0 +1,10 @@
+@let account = accountSignal.accountState();
+@if(!account.error){
+    @if(account.loading){
+        mensaje de cargando
+    }@else{
+        aca va un switch de roles, yo hago la estructura
+    }
+}@else{
+    html que muestre un mensaje con el error 
+}

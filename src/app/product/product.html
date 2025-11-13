@@ -1,1 +1,23 @@
-<p>product works!</p>
+@let product = productSignal.productState();
+@let auth = authSignal.authState();
+
+@if(!product.error){
+
+    aca muestra la info del producto
+
+    @if(auth.logged){
+        muestra el boton de agregar al carrito/comprar
+    }@else{
+        mensaje de loggeate para comprar
+    }
+
+    @if(auth.logged){
+        aca el forms de creacion de review
+    }@else{
+        aca muestra un mensaje que diga que si queres 
+        dejar una reseña te tenes que logear.
+    }
+    aca reviws
+}@else{
+    muestra mensaje de error.
+}
