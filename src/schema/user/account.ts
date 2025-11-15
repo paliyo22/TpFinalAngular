@@ -2,9 +2,7 @@ import { array, date, InferInput, nullable, object, optional, safeParse, string 
     
 const metaSchema = object({
     "created": date(),
-    "updated": date(),
-    "deletedBy": nullable(string()),
-    "status": string() 
+    "updated": date()
 });
 
 const userSchema = object({

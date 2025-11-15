@@ -9,5 +9,5 @@ import { CategoryService } from './category-managment';
   changeDetection: ChangeDetectionStrategy.OnPush 
 })
 export class Category {
-  protected readonly categoySignal = inject(CategoryService);
+  protected readonly categorySignal = inject(CategoryService);
 }

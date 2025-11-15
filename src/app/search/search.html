@@ -1,12 +1,11 @@
 @let search = searchSignal.searchState();
 
-@if(!search.error){
-    @if(search.loading){
-        mensaje de cargando
-    }@else{
-        aca se muestra el arreglo de los resultados 
-        o un mensaje de que nada coincide
-    }
-}@else{
+@if (search.loading) {
+    mensaje de cargando
+}@else if (search.error) {
     muestra mensaje con el error 
+}@else if (search.data.length === 0){
+    un mensaje de que no hay resultados
+}@else {
+    aca se muestra el arreglo de los resultados 
 }

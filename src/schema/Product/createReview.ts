@@ -1,4 +1,4 @@
-import { InferInput, maxValue, minValue, number, object, pipe, string } from "valibot";
+import { InferInput, maxValue, minValue, number, object, pipe, safeParse, string } from "valibot";
 
 const reviewsSchema = object({
     "productId": string(),
@@ -7,3 +7,7 @@ const reviewsSchema = object({
 });
 
 export type CreateReview = InferInput<typeof reviewsSchema>;
+
+export const validateReview = (imput: unknown) => {
+    return safeParse(reviewsSchema, imput)
+};

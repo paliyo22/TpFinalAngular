@@ -3,6 +3,7 @@ import { PartialProductSchema } from "../../schema/Product/product";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Url } from "../../common/const";
 import { catchError, of, tap } from "rxjs";
+import { Category } from "../../enum/category";
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class CategoryService {
         total: 0, 
         loading: false,
         error: null as string | null,
-        currentCategory: '' as string //se puede remplazar por "null as Category | null" si creo enum
+        currentCategory: null as Category | null
     });
 
     getTotalProducts(): void {
@@ -53,7 +54,7 @@ export class CategoryService {
         ).subscribe();
     }
 
-    getProductsByCategory(category: string, limit?: number, offset?: number): void {
+    getProductsByCategory(category: Category, limit?: number, offset?: number): void {
         let params = new HttpParams();
 
         if (limit !== undefined) {

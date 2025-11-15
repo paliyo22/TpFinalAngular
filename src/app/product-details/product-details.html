@@ -1,7 +1,11 @@
 @let product = productSignal.productState();
 @let auth = authSignal.authState();
 
-@if(!product.error){
+@if (product.loading) {
+    mensaje cargando
+}@else if (product.error) {
+    muestra mensaje de error 
+}@else {
 
     aca muestra la info del producto
 
@@ -12,12 +16,9 @@
     }
 
     @if(auth.logged){
-        aca el forms de creacion de review
+        aca el forms de creacion de review (1-10)
     }@else{
         aca muestra un mensaje que diga que si queres 
         dejar una reseña te tenes que logear.
     }
-    aca reviws
-}@else{
-    muestra mensaje de error.
 }

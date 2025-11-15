@@ -1,4 +1,4 @@
-import { InferInput, object, optional, string, pipe, email, minLength, date, enum_ } from "valibot";
+import { InferInput, object, optional, string, pipe, email, minLength, date, enum_, safeParse } from "valibot";
 import { Role } from "../../enum/role";
 
 
@@ -36,3 +36,15 @@ export type CreateBusiness = InferInput<typeof businessSchema>;
 export type UpdateBusiness = Partial<CreateBusiness>;
 
 export type CreateAdmin = InferInput<typeof adminSchema>;
+
+export const validateUser = (imput: unknown) => {
+    return safeParse(userSchema, imput)
+};
+
+export const validateBusiness = (imput: unknown) => {
+    return safeParse(businessSchema, imput)
+};
+
+export const validateAdmin = (imput: unknown) => {
+    return safeParse(adminSchema, imput)
+};

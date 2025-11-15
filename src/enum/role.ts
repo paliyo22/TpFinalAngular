@@ -12,7 +12,6 @@ export const RoleGroup: Record<Role, 'user' | 'business' | 'admin'> = {
   [Role.Admin]: 'admin'
 };
 
-export function getRoleGroup(role: string): 'user' | 'business' | 'admin' | undefined {
-  const normalized = role.toLowerCase().trim() as Role;
-  return RoleGroup[normalized];
+export function getRoleGroup(role: Role): 'user' | 'business' | 'admin' {
+  return RoleGroup[role];
 };

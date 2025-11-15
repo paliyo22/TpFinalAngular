@@ -21,7 +21,7 @@ export class AuthService {
     error: null as string | null
   });
 
-  setState(): void {
+  private setState(): void {
     this.authState.update(() => ({
       logged: false,
       username: null,

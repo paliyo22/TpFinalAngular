@@ -1,4 +1,4 @@
-import { InferInput, object, optional, string } from "valibot";
+import { InferInput, object, optional, safeParse, string } from "valibot";
 
 const addressSchema = object({
     "address": string(),
@@ -16,3 +16,11 @@ const storeSchema = object({
 export type CreateAddress = InferInput<typeof addressSchema>;
 
 export type CreateStore = InferInput<typeof storeSchema>;
+
+export const validateAddress = (imput: unknown) => {
+    return safeParse(addressSchema, imput)
+};
+
+export const validateStore = (imput: unknown) => {
+    return safeParse(storeSchema, imput)
+};

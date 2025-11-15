@@ -1,4 +1,5 @@
-import { array, boolean, date, nullable, number, object, optional, safeParse, string, type InferInput } from "valibot";
+import { array, boolean, date, enum_, nullable, number, object, optional, safeParse, string, type InferInput } from "valibot";
+import { Category } from "../../enum/category";
 
 /**
  * Aca se define la estructura de los datos que entran del back.
@@ -8,10 +9,10 @@ const partialProductSchema = object({
     "id": string(),
     "title": string(),
     "description": string(),
-    "category": string(),
+    "category": enum_(Category),
     "price": number(),
     "discountPercentage": number(),
-    "stock": boolean(),
+    "stock": number(),
     "brand": string(),
     "tags": optional(array(string())),
     "images": optional(array(string())), 
@@ -21,6 +22,7 @@ const partialProductSchema = object({
 export type PartialProductSchema = InferInput<typeof partialProductSchema>;
 
 const storeSchema = object({
+    "id": string(),
     "address": string(),
     "city": string(),
     "country": string(),

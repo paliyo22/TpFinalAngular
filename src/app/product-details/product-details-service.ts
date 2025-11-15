@@ -11,7 +11,7 @@ import { AuthService } from "../service/auth-managment";
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class ProductDetailsService {
   
   private apiUrl = `${Url}/product`;
   private http = inject(HttpClient);

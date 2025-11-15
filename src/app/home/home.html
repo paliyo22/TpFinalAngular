@@ -3,23 +3,20 @@
 @if (products.featuredList.error && products.productList.error) {
     mensaje de error(todo fallo)
 }@else {
-    @if(!products.featuredList.error){
-        @if(products.featuredList.loading){
-            mensaje de cargando
-        }@else{
-            se muestran la lista de productos destacados
-        }
+    
+    @if(products.featuredList.loading) {
+        mensaje de cargando
+    }@else if(products.featuredList.error) {
+        mostrar error cargando productos destacados
     }@else{
-        muestre un mensaje con el error de los destacadas
+        mostrar los productos destacados
     }
 
-    @if(!products.productList.error){
-        @if(products.productList.loading){
-            mensaje cargando
-        }@else{
-            se muestran con paginacion todos los productos
-        }
+    @if(products.productList.loading) {
+        mensaje de cargando
+    }@else if(products.productList.error) {
+        mostrar error cargando productos
     }@else{
-        muestre un mensaje con el error de los productos
+        mostrar los productos(paginacion)
     }
 }
